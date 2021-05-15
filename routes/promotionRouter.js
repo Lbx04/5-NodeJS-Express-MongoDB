@@ -1,7 +1,7 @@
 const express = require('express');
-const campsiteRouter = express.Router();
+const promotionRouter = express.Router();
 
-campsiteRouter.route('/')
+promotionRouter.route('/')
 .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -22,7 +22,7 @@ campsiteRouter.route('/')
 });
 
 
-campsiteRouter.route('/:campsiteId')
+promotionRouter.route('/:promotionId')
 .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -31,16 +31,14 @@ campsiteRouter.route('/:campsiteId')
     res.end('Will send all the campsites to you');
 })
 .post((req, res) => {
-    res.end(`POST operation not supported on /campsites`);
+    res.end(`POST operation not supported on /promotions`);
 })
 .put((req, res) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /campsites');
+    res.end('PUT operation not supported on /promotions');
 })
 .delete((req, res) => {
-    res.end('Deleting all campsites');
+    res.end('Deleting all promotions');
 });
 
-
-
-module.exports = campsiteRouter;
+module.exports = promotionRouter;
